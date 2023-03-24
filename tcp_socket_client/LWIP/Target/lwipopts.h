@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+  * <h2><center>&copy; Copyright (c) 2023 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
   * This software component is licensed by ST under Ultimate Liberty license
@@ -113,10 +113,10 @@
 #define CHECKSUM_CHECK_ICMP 0
 /*----- Value in opt.h for CHECKSUM_CHECK_ICMP6: 1 -----*/
 #define CHECKSUM_CHECK_ICMP6 0
-/*----- Default Value for NETIF_DEBUG: LWIP_DBG_OFF ---*/
-#define NETIF_DEBUG LWIP_DBG_ON
-/*----- Default Value for DNS_DEBUG: LWIP_DBG_OFF ---*/
-#define DNS_DEBUG LWIP_DBG_ON
+/*----- Default Value for LWIP_DBG_TYPES_ON: LWIP_DBG_ON ---*/
+#define LWIP_DBG_TYPES_ON LWIP_DBG_OFF
+/*----- Default Value for SOCKETS_DEBUG: LWIP_DBG_OFF ---*/
+#define SOCKETS_DEBUG LWIP_DBG_ON
 /*-----------------------------------------------------------------------------*/
 /* USER CODE BEGIN 1 */
 #define LWIP_DEBUG LWIP_DBG_ON

@@ -55,6 +55,7 @@ UART_HandleTypeDef huart3;
 osThreadId defaultTaskHandle;
 osThreadId tcpClientTaskHandle;
 osThreadId tcpServerTaskHandle;
+osThreadId UdpServerTaskHandle;
 /* USER CODE BEGIN PV */
 //DHT_sensor dht11 = {DHT11_IO_GPIO_Port, DHT11_IO_Pin, DHT11, 0};
 /* USER CODE END PV */
@@ -66,6 +67,7 @@ static void MX_USART3_UART_Init(void);
 void StartDefaultTask(void const * argument);
 extern void StartTcpClientTask(void const * argument);
 extern void StartTcpServerTask(void const * argument);
+extern void StartUdpServerTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -326,12 +328,16 @@ int main(void)
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* definition and creation of tcpClientTask */
-  osThreadDef(tcpClientTask, StartTcpClientTask, osPriorityNormal, 0, 2048);
-  tcpClientTaskHandle = osThreadCreate(osThread(tcpClientTask), NULL);
+  //osThreadDef(tcpClientTask, StartTcpClientTask, osPriorityNormal, 0, 2048);
+  //tcpClientTaskHandle = osThreadCreate(osThread(tcpClientTask), NULL);
 
   /* definition and creation of tcpServerTask */
-  osThreadDef(tcpServerTask, StartTcpServerTask, osPriorityNormal, 0, 2048);
-  tcpServerTaskHandle = osThreadCreate(osThread(tcpServerTask), NULL);
+  //osThreadDef(tcpServerTask, StartTcpServerTask, osPriorityNormal, 0, 2048);
+  //tcpServerTaskHandle = osThreadCreate(osThread(tcpServerTask), NULL);
+
+  /* definition and creation of UdpServerTask */
+  osThreadDef(UdpServerTask, StartUdpServerTask, osPriorityNormal, 0, 2048);
+  UdpServerTaskHandle = osThreadCreate(osThread(UdpServerTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
